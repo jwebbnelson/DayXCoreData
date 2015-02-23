@@ -6,13 +6,15 @@
 //  Copyright (c) 2015 Jordan Nelson. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ListViewController.h"
+#import "DetailViewController.h"
 
-@interface ViewController ()
+@interface ListViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ListViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
