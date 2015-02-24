@@ -11,12 +11,21 @@
 @interface DetailViewController ()
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *backButton;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (strong, nonatomic) IBOutlet UIButton *clearButton;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
 @end
 
 @implementation DetailViewController
 
 - (IBAction)backAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)clearAction:(id)sender {
+    self.titleTextField.text = @"";
+    self.textView.text = @"";
 }
 
 - (void)viewDidLoad {
