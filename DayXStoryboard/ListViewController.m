@@ -19,7 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    [self.dataSource registerTableView:self.tableView];
+    
 }
+
+#pragma mark - didSelectRowAtIndexPath
+// Immediately deselects cell
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    DetailViewController *viewController = [DetailViewController new];
+//    viewController.initialIndex = indexPath.row;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

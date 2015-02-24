@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListViewDataSource.h"
 
 @interface ListViewController : UITableViewController
 
+@property (strong,nonatomic) IBOutlet ListViewDataSource *dataSource;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
+static NSString * const cellIdentifer = @"cell";
+
 @interface ListViewDataSource : NSObject <UITableViewDataSource>
 
-//- (void)registerTableView:(UITableView *)tableView;
+- (void)registerTableView:(UITableView *)tableView;
 
 @end

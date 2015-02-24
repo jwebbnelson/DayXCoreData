@@ -12,33 +12,34 @@
 @implementation ListViewDataSource
 
 #pragma registerTableView Method
-//- (void)registerTableView:(UITableView *)tableView {
-//    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-//}
+- (void)registerTableView:(UITableView *)tableView {
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifer];
+}
 
 #pragma numberOfRowsInSection Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [EntryController sharedInstance].entries.count;
+    return [EntryController sharedInstance].entries.count ;
 }
 
 #pragma cellForRowAtIndexPath Method
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Entry *entry = [EntryController sharedInstance].entries[indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
     cell.textLabel.text = entry.title;
+    
     
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (editingStyle == UITableViewCellEditingStyleDelete){
-//        [[EntryController sharedInstance] removeEntry:[[EntryController sharedInstance].entries objectAtIndex:indexPath.row]];
-//        // Animation Selection
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    }
-//    
-//}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        [[EntryController sharedInstance] removeEntry:[[EntryController sharedInstance].entries objectAtIndex:indexPath.row]];
+        // Animation Selection
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+}
 
 
 @end
