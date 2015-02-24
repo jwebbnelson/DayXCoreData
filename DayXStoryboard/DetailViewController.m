@@ -28,6 +28,18 @@
     self.textView.text = @"";
 }
 
+//// Keyboard Removal
+//-(BOOL)textFieldShouldReturn:(UITextView *)textView{
+//    [textView resignFirstResponder];
+//    return YES;
+//}
+//
+//// Keyboard Removal
+//-(BOOL)textViewShouldReturn:(UITextField *)textField{
+//    [textField resignFirstResponder];
+//    return YES;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
