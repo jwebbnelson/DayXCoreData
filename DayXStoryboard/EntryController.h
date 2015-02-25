@@ -11,14 +11,14 @@
 
 @interface EntryController : NSObject
 
-@property (nonatomic, readonly) NSArray *entries;
+@property (nonatomic, strong, readonly) NSArray *entries;
 
 +(EntryController *)sharedInstance;
 
--(void)addEntry:(Entry*)entry;
+-(void)addEntryWithTitle:(NSString *)title Text:(NSString *)text andDate:(NSDate *)date;
 -(void)removeEntry:(Entry*)entry;
--(void)replaceEntry:(NSDictionary *)oldEntry withEntry:(NSDictionary *)newEntry;
 
--(void)loadFromDefaults;
+-(void)synchronize;
+
 
 @end

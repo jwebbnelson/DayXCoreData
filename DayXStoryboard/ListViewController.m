@@ -30,10 +30,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    DetailViewController *viewController = [DetailViewController new];
-//    viewController.initialIndex = indexPath.row;
-    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 

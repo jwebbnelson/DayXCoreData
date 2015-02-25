@@ -10,6 +10,7 @@
 #import "EntryController.h"
 
 
+
 static NSString *subjectKey = @"subjectKey"; // Title
 static NSString *entryKey = @"entryKey";     // Text
 static NSString *journalKey = @"journalKey"; // Entry
@@ -38,12 +39,14 @@ static NSString *journalKey = @"journalKey"; // Entry
 }
 
 - (IBAction)saveAction:(id)sender {
-    Entry *entry = [[Entry alloc]initWithDictionary: @{titleKey: self.titleTextField.text, textKey: self.textView.text}];
-    
     if (self.entry) {
-        [[EntryController sharedInstance] replaceEntry:self.entry withEntry:entry];
+        self.entry.title = self.titleTextField.text;
+        self.entry.text = self.textView.text;
+        self.entry.timestamp = [NSDate date];
+        
+        [[EntryController sharedInstance]synchronize];
     } else {
-        [[EntryController sharedInstance] addEntry:entry];
+        [[EntryController sharedInstance] addEntryWithTitle:self.titleTextField.text Text:self.textView.text andDate:[NSDate date]];
     }
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -62,17 +65,6 @@ static NSString *journalKey = @"journalKey"; // Entry
     self.textView.text = entry.text;
 }
 
-//// Keyboard Removal
-//-(BOOL)textFieldShouldReturn:(UITextView *)textView{
-//    [textView resignFirstResponder];
-//    return YES;
-//}
-//
-//// Keyboard Removal
-//-(BOOL)textViewShouldReturn:(UITextField *)textField{
-//    [textField resignFirstResponder];
-//    return YES;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

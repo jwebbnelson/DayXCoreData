@@ -28,7 +28,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
     cell.textLabel.text = entry.title;
     
-    
     return cell;
 }
 
@@ -38,7 +37,6 @@
         // Animation Selection
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-    
 }
 
 
